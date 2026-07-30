@@ -208,6 +208,69 @@ for w in words:
 print("Occurrences of", word, ":", count)
 
 
+# Program 21: Validate password
+import string
+pwd=input("Enter password: ")
+u=l=d=s=0
+for ch in pwd:
+    if ch in string.ascii_uppercase:
+        u=1
+    elif ch in string.ascii_lowercase:
+        l=1
+    elif ch in string.digits:
+        d=1
+    elif ch in string.punctuation:
+        s=1
+if len(pwd)>=8 and u and l and d and s:
+    print("Valid Password")
+else:
+    print("Invalid Password")
+
+# Program 22: Run-length encoding
+s=input("Enter a string: ")
+i=0
+result=""
+while i<len(s):
+    count=1
+    while i+1<len(s) and s[i]==s[i+1]:
+        count+=1
+        i+=1
+    result+=s[i]+str(count)
+    i+=1
+print("Encoded string:", result)
+
+# Program 23: Compress string if shorter
+s=input("Enter a string: ")
+i=0
+compressed= ""
+while i<len(s):
+    count=1
+    while i+1<len(s) and s[i]==s[i+1]:
+        count+=1
+        i+=1
+    compressed+=s[i]+str(count)
+    i+=1
+print("Compressed string:", compressed if len(compressed) < len(s) else s)
+
+# Program 24: Find most frequent character
+s=input("Enter a string: ")
+freq={}
+for ch in s:
+    freq[ch]=freq.get(ch, 0)+1
+most=max(freq, key=freq.get)
+print("Most frequent character:", most)
+
+# Program 25: Find second most frequent character
+s=input("Enter a string: ")
+freq={}
+for ch in s:
+    freq[ch]=freq.get(ch,0)+1
+sorted_freq=sorted(freq.items(),key=lambda x: x[1],reverse=True)
+if len(sorted_freq)>1:
+    print("Second most frequent character:", sorted_freq[1][0])
+else:
+    print("No second most frequent character")
+
 
 
 
